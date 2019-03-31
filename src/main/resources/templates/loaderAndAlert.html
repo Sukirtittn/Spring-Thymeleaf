@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="head :: head(ExtJS='ExtJS.js',ExtCSS='loader.css',title='Hello')"></head>
+
+<body>
+<button type="button" id="alertBtn">Click For Alert</button>
+<div class="loading"></div>
+<button class="button start">Start loader</button>
+<button class="button stop">Stop loader</button>
+
+<label>Competency: </label>
+<select id="dropdown">
+    <option th:value="None">Select One</option>
+    <option th:each="competency : ${T(com.thymeleafdemo.springThymeLeafAssignment.model.Competency).values()}"
+            th:value="${competency.getValue()}" th:text="${competency.getValue()}"></option>
+</select>
+
+<h4>Common footer--></h4>
+<footer th:include="footer :: copy"></footer>
+
+</body>
+</html>
